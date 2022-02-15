@@ -30,7 +30,6 @@ namespace HashTable
                     }
 
                 }
-
                 if (checkForDuplication.Contains(element))
                 {
                     continue;
