@@ -38,11 +38,13 @@ namespace HashTable
                 checkForDuplication.AddLast(element);
                 hash.Add(element, count);
             }
-
-            int frequency = hash.Get("Paranoids");
-            Console.WriteLine("frequency for Paranoids:\t" + frequency);
-            Console.WriteLine("\n Displaying all the key value pairs in hash table");
+            int freq = hash.Get("avoidable");
+            Console.WriteLine("Frequency of the word Avoidable :" + freq);
+            hash.Remove("avoidable");
+            freq = hash.Get("avoidable");
+            Console.WriteLine("Frequency of the word Avoidable after removing :" + freq);
             hash.Display();
+            Console.ReadLine();
 
         }
     }
