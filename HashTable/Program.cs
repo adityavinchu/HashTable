@@ -6,19 +6,44 @@ using System.Threading.Tasks;
 
 namespace HashTable
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            MyMapNode<string, string> myMapNode = new MyMapNode<string, string>(5);
-            myMapNode.Add("0", "To");
-            myMapNode.Add("1", "be");
-            myMapNode.Add("2", "or");
-            myMapNode.Add("3", "not");
-            myMapNode.Add("4", "to");
-            myMapNode.Add("5", "be");
-            myMapNode.Display();
-            Console.ReadLine();
+            MyMapNode<string, int> hash = new MyMapNode<string, int>(5);
+
+            string words = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            string[] arr = words.Split(' ');
+            LinkedList<string> checkForDuplication = new LinkedList<string>();
+            foreach (string element in arr)
+            {
+                int count = 0;
+                foreach (string match in arr)
+                {
+                    if (element == match)
+                    {
+                        count++;
+                        if (checkForDuplication.Contains(element))
+                        {
+                            break;
+                        }
+                    }
+
+                }
+
+                if (checkForDuplication.Contains(element))
+                {
+                    continue;
+                }
+                checkForDuplication.AddLast(element);
+                hash.Add(element, count);
+            }
+
+            int frequency = hash.Get("Paranoids");
+            Console.WriteLine("frequency for Paranoids:\t" + frequency);
+            Console.WriteLine("\n Displaying all the key value pairs in hash table");
+            hash.Display();
+
         }
     }
 }

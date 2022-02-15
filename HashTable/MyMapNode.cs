@@ -37,6 +37,21 @@ namespace HashTable
             }
             return linkedlist;
         }
+        public V Get(K key)
+        {
+            int position = GetArrayPosition(key);
+
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.key.Equals(key))
+                {
+                    return item.value;
+                }
+            }
+            return default(V);
+        }
         public void Display()
         {
             foreach (var linkedList in items)
