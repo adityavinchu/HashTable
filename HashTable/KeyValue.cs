@@ -8,7 +8,7 @@ namespace HashTable
 {
     public class KeyValue<K, V>
     {
-        public K Key { get; set; }
-        public V Value { get; set; }
+        public K key { get; set; }
+        public V value { get; set; }
     }
 }

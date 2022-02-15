@@ -10,7 +10,7 @@ namespace HashTable
     {
         static void Main(string[] args)
         {
-            MapNode<string, string> myMapNode = new MapNode<string, string>(5);
+            MyMapNode<string, string> myMapNode = new MyMapNode<string, string>(5);
             myMapNode.Add("0", "To");
             myMapNode.Add("1", "be");
             myMapNode.Add("2", "or");

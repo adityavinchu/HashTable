@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HashTable
 {
-    public class MapNode<K, V>
+    public class MyMapNode<K, V>
     {
         private readonly int size;
         private readonly LinkedList<KeyValue<K, V>>[] items;
-        public MapNode(int size)
+        public MyMapNode(int size)
         {
             this.size = size;
             items = new LinkedList<KeyValue<K, V>>[size];
@@ -24,7 +24,7 @@ namespace HashTable
         {
             int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(position);
-            KeyValue<K, V> item = new KeyValue<K, V>() { Key = key, Value = value };
+            KeyValue<K, V> item = new KeyValue<K, V>() { key = key, value = value };
             linkedlist.AddLast(item);
         }
         public LinkedList<KeyValue<K, V>> GetLinkedList(int position)
@@ -45,10 +45,10 @@ namespace HashTable
 
                     foreach (KeyValue<K, V> keyvalue in linkedList)
                     {
-                        Console.WriteLine(keyvalue.Key + " " + keyvalue.Value);
+
+                        Console.WriteLine(keyvalue.key + " " + keyvalue.value);
                     }
             }
         }
     }
-
 }
